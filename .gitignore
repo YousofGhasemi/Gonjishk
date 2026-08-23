@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Virtual Environment
+venv/
+.venv/
+
+# Django
+*.sqlite3
+staticfiles/
+media/
+
+# Environment variables — هرگز نباید commit بشن
+.env
+.env.*
+!.env.example
+
+# Testing / Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
