@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     # Django Rest Framework
     "rest_framework",
     "rest_framework_simplejwt.token_blacklist",
+    # drf_spectacular
+    "drf_spectacular",
     # My apps
     "users",
     "posts",
@@ -142,6 +144,7 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "users.authentication.CookieJWTAuthentication",
     ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 
@@ -155,4 +158,11 @@ SIMPLE_JWT = {
     "AUTH_COOKIE_HTTP_ONLY": True,
     "AUTH_COOKIE_SECURE": not DEBUG,
     "AUTH_COOKIE_SAMESITE": "Lax",
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Gonjishk API",
+    "DESCRIPTION": "A Twitter-like backend built for learning production Django architecture.",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
 }
