@@ -1,6 +1,6 @@
 from django.conf import settings
 from drf_spectacular.utils import extend_schema
-from rest_framework import permissions, status
+from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.exceptions import TokenError
@@ -11,6 +11,12 @@ from rest_framework_simplejwt.serializers import (
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from .cookies import clear_auth_cookies, set_auth_cookies
+from .sserializers import RegisterSerializer
+
+
+class RegisterView(generics.CreateAPIView):
+    permission_classes = [permissions.AllowAny]
+    serializer_class = RegisterSerializer
 
 
 class LoginView(APIView):
