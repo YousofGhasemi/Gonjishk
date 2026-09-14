@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     # Django Rest Framework
     "rest_framework",
     "rest_framework_simplejwt.token_blacklist",
+    # django_filters
+    "django_filters",
     # drf_spectacular
     "drf_spectacular",
     # My apps
@@ -145,6 +147,13 @@ REST_FRAMEWORK = {
         "users.authentication.CookieJWTAuthentication",
     ],
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.CursorPagination",
+    "PAGE_SIZE": 20,
+    "DEFAULT_FILTER_BACKENDS": [
+        "django_filters.rest_framework.DjangoFilterBackend",
+        "rest_framework.filters.SearchFilter",
+        "rest_framework.filters.OrderingFilter",
+    ],
 }
 
 
